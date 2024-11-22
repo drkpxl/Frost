@@ -44,4 +44,7 @@ JetBrains Mono
 18
 
 
-This is my first theme, and if you have suggestions for improvement please let me know and I look forward to learning more.
+This is my first theme, and if you have suggestions for improvement please let me know and I look forward to learning more. If you like this theme please consider buying me a coffee.
+
+
+<a href="https://www.buymeacoffee.com/drkpxl" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
