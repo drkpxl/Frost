@@ -1,0 +1,30 @@
+name: Release Obsidian theme
+
+on:
+  push:
+    tags:
+      - "*" # Trigger the workflow when a tag is pushed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install GitHub CLI
+        run: sudo apt-get install gh
+
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Extract the tag name from GITHUB_REF
+          tag="${GITHUB_REF#refs/tags/}"
+
+          # Create a release with the tag name and attach assets
+          gh release create "$tag" \
+            --title="$tag" \
+            --generate-notes \
+            --draft \
+            manifest.json theme.css
