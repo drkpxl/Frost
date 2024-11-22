@@ -238,11 +238,13 @@ body.theme-light {
   /* Selected/active states */
   .nav-file-title.is-active {
 	background-color: var(--accent);
-	color: #ffffff;
+	background-color: var(--color-bg-secondary);
+	color: var(--color-text-primary);
+	font-weight: 700;
   }
   
   .nav-file-title.is-active .nav-file-tag {
-	color: rgba(255, 255, 255, 0.8);
+	color: var(--color-text-primary);
   }
   
   /* Collapse/expand arrows */
