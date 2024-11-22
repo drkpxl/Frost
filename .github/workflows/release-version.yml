@@ -4,21 +4,21 @@ on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
-      - "*" # Push events to matching any tag format, i.e. 1.0, 20.15.10
+      - "*" # Match any tag format, e.g., 1.0, 20.15.10
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     permissions: 
-      contents: write # Ensure GITHUB_TOKEN has the correct permissions
+      contents: write # Ensure GITHUB_TOKEN has write permissions
 
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Get Tag Name
+
+      - name: Extract Tag Name
         id: tag_name
-        run: echo "tag_name=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
       - name: Create Release
         id: create_release
@@ -26,8 +26,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.tag_name }}
-          release_name: ${{ env.tag_name }}
+          tag_name: ${{ env.TAG_NAME }}
+          release_name: ${{ env.TAG_NAME }}
           draft: false
           prerelease: false
 
